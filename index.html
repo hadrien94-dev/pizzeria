@@ -261,10 +261,9 @@ nav.scrolled { height: 56px; box-shadow: 0 2px 24px rgba(200,67,10,0.35); }
 
 .carte-grid {
   max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem;
 }
-.carte-panel { display: none; }
-.carte-panel.active { display: contents; }
+.carte-panel { display: none; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+.carte-panel.active { display: grid; }
 
 .plat-card {
   background: var(--bg-card); border: 1px solid var(--border-fine);
@@ -278,12 +277,6 @@ nav.scrolled { height: 56px; box-shadow: 0 2px 24px rgba(200,67,10,0.35); }
   transition: opacity var(--ease);
 }
 .plat-card:hover::before { opacity: 1; }
-.plat-hh {
-  position: absolute; top: 0.8rem; right: 0.8rem;
-  background: var(--gold); color: #fff;
-  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.2rem 0.55rem; border-radius: 999px;
-}
 .plat-name {
   font-family: var(--font-display); font-size: 1.1rem;
   font-weight: 600; color: var(--ink); padding-right: 2rem;
@@ -292,10 +285,6 @@ nav.scrolled { height: 56px; box-shadow: 0 2px 24px rgba(200,67,10,0.35); }
 .plat-prix {
   margin-top: 0.5rem; font-size: 1rem; font-weight: 600;
   color: var(--accent); font-family: var(--font-display);
-}
-.plat-prix .prix-hh {
-  font-size: 0.72rem; text-decoration: line-through;
-  color: var(--muted); font-weight: 400; font-family: var(--font-body); margin-right: 0.3rem;
 }
 
 /* ── COMMANDER ── */
@@ -324,8 +313,6 @@ nav.scrolled { height: 56px; box-shadow: 0 2px 24px rgba(200,67,10,0.35); }
 }
 .btn-uber { background: #06C167; color: #fff; }
 .btn-uber:hover { background: #05B05D; transform: translateY(-2px); }
-.btn-deliveroo { background: #00CCBC; color: #fff; }
-.btn-deliveroo:hover { background: #00B5A7; transform: translateY(-2px); }
 .btn-tel-order {
   background: transparent; color: #fff;
   border: 1.5px solid rgba(255,255,255,0.3); padding: 1rem 2rem;
@@ -529,12 +516,12 @@ footer {
 @media (max-width: 960px) {
   .nav-links { display: none; }
   .histoire-inner, .resa-inner, .infos-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .carte-grid { grid-template-columns: 1fr 1fr; }
+  .carte-panel { grid-template-columns: 1fr 1fr; }
   .avis-grid { grid-template-columns: 1fr; }
   .histoire-img { aspect-ratio: 16/9; }
 }
 @media (max-width: 640px) {
-  .carte-grid { grid-template-columns: 1fr; }
+  .carte-panel { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; }
   .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
   .form-row { grid-template-columns: 1fr; }
@@ -547,7 +534,6 @@ footer {
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav id="mainNav">
   <a href="#accueil" class="nav-logo">La Caz'à Pizza — <span>Vincennes</span></a>
   <ul class="nav-links">
@@ -562,16 +548,15 @@ footer {
 
 <main>
 
-  <!-- ── HERO ── -->
   <section class="hero" id="accueil">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <div class="hero-eyebrow">Pizzeria · Vincennes · Repas sur place &amp; livraison</div>
+      <div class="hero-eyebrow">Pizzeria · Vincennes · Repas sur place & livraison</div>
       <h1 class="hero-title">
         La pizza comme<br><em>en Italie</em>,<br>à Vincennes.
       </h1>
       <p class="hero-body">
-        Pâtes bio, produits frais, garnitures généreuses — La Caz'à Pizza c'est la vraie pizza à prix honnête, à deux pas du bois. Sur place, à emporter ou en livraison.
+        Pâtes à pizza BIO, produits frais, garnitures généreuses — La Caz'à Pizza c'est la vraie pizza artisanale à prix honnête, sur place, à emporter ou en livraison.
       </p>
       <div class="hero-actions">
         <a href="#reservation" class="btn-primary">
@@ -590,17 +575,16 @@ footer {
         </div>
         <div class="hero-badge">
           <div class="hero-badge-dot"></div>
-          <span><strong>Pâtes bio</strong> · produits frais</span>
+          <span><strong>Pâte à Pizza BIO</strong> · Ingrédients frais</span>
         </div>
         <div class="hero-badge">
           <div class="hero-badge-dot"></div>
-          <span><strong>10–20 €</strong> par personne</span>
+          <span><strong>11–17 €</strong> par pizza</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── HAPPY HOUR BANNER ── -->
   <div class="hh-banner">
     <div class="hh-tag">
       <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm.5 5v6.25l4.5 2.67-.77 1.3-5.23-3.09V7h1.5z"/></svg>
@@ -609,7 +593,6 @@ footer {
     <p class="hh-text">Chaque lundi au vendredi · <strong>17h00 – 19h00</strong> · Pizzas au feu de bois à <strong>-20%</strong> sur place · Sur présentation en caisse</p>
   </div>
 
-  <!-- ── HISTOIRE ── -->
   <section class="histoire-section" id="histoire">
     <div class="histoire-inner">
       <div class="histoire-img">
@@ -622,10 +605,10 @@ footer {
           <h2 class="section-title">La pizzeria de <em>quartier</em> qu'on attendait</h2>
         </div>
         <p class="histoire-body">
-          La Caz'à Pizza, c'est une adresse simple et sincère au cœur de Vincennes. <strong>Pas de chichis</strong> : des pizzas préparées avec des pâtes bio, des garnitures fraîches et généreuses, à des prix qui n'ont pas à rougir face aux grandes capitales italiennes.
+          La Caz'à Pizza, c'est une adresse simple et sincère au cœur de Vincennes. <strong>La spécificité de la maison</strong> : toutes nos pizzas sont réalisées à base d'une excellente **pâte à pizza BIO** légère et digeste, garnie de produits frais sélectionnés.
         </p>
         <p class="histoire-body">
-          La salle est petite, la terrasse sur l'avenue est animée. On vient ici pour manger bien, vite, et repartir heureux. <strong>Repas sur place, vente à emporter ou livraison</strong> — à vous de choisir.
+          La salle est chaleureuse et la terrasse sur l'avenue est idéale pour les beaux jours. On vient ici pour partager un bon repas entre amis ou commander rapidement sa pizza préférée à la maison.
         </p>
         <div class="histoire-facts">
           <div class="histoire-fact">
@@ -633,192 +616,228 @@ footer {
             <span>Note Google · 211 avis</span>
           </div>
           <div class="histoire-fact">
-            <strong>Bio</strong>
-            <span>Pâtes biologiques</span>
+            <strong>100% Bio</strong>
+            <span>Pâtes de qualité supérieure</span>
           </div>
           <div class="histoire-fact">
-            <strong>10–20€</strong>
-            <span>Par personne</span>
+            <strong>Frais</strong>
+            <span>Garnitures cuisinées</span>
           </div>
           <div class="histoire-fact">
-            <strong>3 modes</strong>
-            <span>Sur place · Emporter · Livraison</span>
+            <strong>Sur-mesure</strong>
+            <span>Bases tomates ou ricotta</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── CARTE ── -->
   <section class="carte-section" id="carte">
     <div class="carte-header">
       <div>
         <div class="section-eyebrow">La carte</div>
-        <h2 class="section-title">Ce que nous <em>cuisinons</em></h2>
+        <h2 class="section-title">Notre <em>Menu Authentique</em></h2>
       </div>
       <div class="carte-tabs" role="tablist">
         <button class="carte-tab active" data-panel="pizzas" role="tab" aria-selected="true">Pizzas</button>
-        <button class="carte-tab" data-panel="pates" role="tab">Pâtes & Risottos</button>
         <button class="carte-tab" data-panel="entrees" role="tab">Entrées</button>
+        <button class="carte-tab" data-panel="salades" role="tab">Salades</button>
+        <button class="carte-tab" data-panel="boissons" role="tab">Boissons</button>
         <button class="carte-tab" data-panel="desserts" role="tab">Desserts</button>
       </div>
     </div>
 
-      <!-- PIZZAS -->
-      <div class="carte-grid">
-        <div class="carte-panel active" id="panel-pizzas">
-          <div class="plat-card">
-            <div class="plat-hh">Happy Hour</div>
-            <div class="plat-name">Pizza Italienne</div>
-            <div class="plat-desc">Tomate, mozzarella, jambon cuit, champignons, olives — la classique maison, pâte bio</div>
-            <div class="plat-prix"><span class="prix-hh">14€</span>11,20€ <small style="color:var(--muted);font-size:0.65rem;font-weight:400">HH</small></div>
-          </div>
-          <div class="plat-card">
-            <div class="plat-hh">Happy Hour</div>
-            <div class="plat-name">4 Fromages</div>
-            <div class="plat-desc">Mozzarella, gorgonzola, chèvre, emmental — fondue généreuse sur pâte bio</div>
-            <div class="plat-prix"><span class="prix-hh">15€</span>12€ <small style="color:var(--muted);font-size:0.65rem;font-weight:400">HH</small></div>
-          </div>
-          <div class="plat-card">
-            <div class="plat-hh">Happy Hour</div>
-            <div class="plat-name">Andalouse</div>
-            <div class="plat-desc">Tomate, mozzarella, chorizo, poivrons, oignons, piment doux</div>
-            <div class="plat-prix"><span class="prix-hh">15€</span>12€ <small style="color:var(--muted);font-size:0.65rem;font-weight:400">HH</small></div>
-          </div>
-          <div class="plat-card">
-            <div class="plat-name">Margherita</div>
-            <div class="plat-desc">Tomate fraîche, fior di latte, basilic, huile d'olive — la base, irréprochable</div>
-            <div class="plat-prix">12€</div>
-          </div>
-          <div class="plat-card">
-            <div class="plat-name">Prosciutto</div>
-            <div class="plat-desc">Tomate, mozzarella, jambon de Parme, roquette fraîche, parmesan en copeaux</div>
-            <div class="plat-prix">17€</div>
-          </div>
-          <div class="plat-card">
-            <div class="plat-name">Regina</div>
-            <div class="plat-desc">Tomate, mozzarella, jambon cuit, champignons frais — valeur sûre de la carte</div>
-            <div class="plat-prix">14€</div>
-          </div>
-        </div>
-
-      <!-- PÂTES -->
-      <div class="carte-panel" id="panel-pates">
+    <div class="carte-grid">
+      <div class="carte-panel active" id="panel-pizzas">
         <div class="plat-card">
-          <div class="plat-name">Spaghetti Carbonara</div>
-          <div class="plat-desc">Guanciale, jaune d'œuf, pecorino romano, poivre noir — recette traditionnelle, sans crème</div>
-          <div class="plat-prix">15€</div>
+          <div class="plat-name">Margherita</div>
+          <div class="plat-desc">Mozzarella, sauce tomate, origan</div>
+          <div class="plat-prix">11,00 €</div>
         </div>
         <div class="plat-card">
-          <div class="plat-name">Penne all'Arrabbiata</div>
-          <div class="plat-desc">Tomate San Marzano, ail, piment calabrais, basilic, pecorino</div>
-          <div class="plat-prix">13€</div>
+          <div class="plat-name">Regina</div>
+          <div class="plat-desc">Mozzarella, jambon, champignons</div>
+          <div class="plat-prix">14,00 €</div>
         </div>
         <div class="plat-card">
-          <div class="plat-name">Rigatoni Bolognese</div>
-          <div class="plat-desc">Ragù de viande mijoté 5 heures, vin rouge, parmesan 24 mois</div>
-          <div class="plat-prix">16€</div>
+          <div class="plat-name">4 Saisons</div>
+          <div class="plat-desc">Mozzarella, jambon, champignons, poivrons, oignons, olives</div>
+          <div class="plat-prix">14,90 €</div>
         </div>
         <div class="plat-card">
-          <div class="plat-name">Risotto aux champignons</div>
-          <div class="plat-desc">Cèpes, pleurotes, truffe noire, beurre de Normandie, parmesan</div>
-          <div class="plat-prix">18€</div>
+          <div class="plat-name">4 Fromages</div>
+          <div class="plat-desc">Mozzarella, cheddar, chèvre, gorgonzola</div>
+          <div class="plat-prix">14,90 €</div>
         </div>
         <div class="plat-card">
-          <div class="plat-name">Tagliatelle aux Saint-Jacques</div>
-          <div class="plat-desc">Saint-Jacques poêlées, bisque légère, courgette, basilic, citron</div>
-          <div class="plat-prix">22€</div>
+          <div class="plat-name">Végétarienne</div>
+          <div class="plat-desc">Mozzarella, aubergines, artichauts, champignons, poivrons, oignons, olives</div>
+          <div class="plat-prix">14,90 €</div>
         </div>
         <div class="plat-card">
-          <div class="plat-name">Gnocchi Sorrentina</div>
-          <div class="plat-desc">Sauce tomate fraîche, mozzarella fondante, basilic, gratinés au four à bois</div>
-          <div class="plat-prix">15€</div>
+          <div class="plat-name">Indienne</div>
+          <div class="plat-desc">Mozzarella, poulet émincé-curry, champignons, poivrons, oignons</div>
+          <div class="plat-prix">14,90 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">Calzone (Chausson)</div>
+          <div class="plat-desc">Mozzarella, viande au choix, champignons, poivrons, oignons, olives</div>
+          <div class="plat-prix">14,90 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">Atlantique</div>
+          <div class="plat-desc">Mozzarella, thon, champignons, poivrons, oignons, olives</div>
+          <div class="plat-prix">14,90 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">Andalouse</div>
+          <div class="plat-desc">Mozzarella, chorizo, champignons, poivrons, oignons, olives</div>
+          <div class="plat-prix">14,90 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">Mexicaine</div>
+          <div class="plat-desc">Cheddar, bœuf haché, champignons, poivrons, oignons, olives, guacamole</div>
+          <div class="plat-prix">15,90 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">Chèvre-Miel-Noix <small style="color:var(--accent)">(Base Ricotta)</small></div>
+          <div class="plat-desc">Mozzarella, chèvre, miel, noix, roquette</div>
+          <div class="plat-prix">15,90 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">Écossaise <small style="color:var(--accent)">(Base Ricotta)</small></div>
+          <div class="plat-desc">Mozzarella, saumon, champignons, oignons, aneth</div>
+          <div class="plat-prix">17,00 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">Italienne</div>
+          <div class="plat-desc">Mozzarella, jambon de Serrano, burrata, roquette, pesto</div>
+          <div class="plat-prix">17,00 €</div>
         </div>
       </div>
 
-      <!-- ENTRÉES -->
       <div class="carte-panel" id="panel-entrees">
         <div class="plat-card">
-          <div class="plat-name">Burrata pugliese</div>
-          <div class="plat-desc">Burrata crémeuse, tomates cerises rôties, pesto de basilic, huile d'olive sicilienne</div>
-          <div class="plat-prix">13€</div>
+          <div class="plat-name">Assiette Italienne</div>
+          <div class="plat-desc">Burrata, jambon Serrano, roquette, sauce pesto, olives. Servie avec du pain bio aux herbes maison</div>
+          <div class="plat-prix">12,00 €</div>
         </div>
         <div class="plat-card">
-          <div class="plat-name">Carpaccio de bœuf</div>
-          <div class="plat-desc">Filet de bœuf tranché fin, câpres, roquette, parmesan, citron, huile d'olive</div>
-          <div class="plat-prix">16€</div>
+          <div class="plat-name">Assiette Norvégienne</div>
+          <div class="plat-desc">Saumon, roquette, avocat, ricotta. Servie avec du pain bio aux herbes maison</div>
+          <div class="plat-prix">12,00 €</div>
         </div>
         <div class="plat-card">
-          <div class="plat-name">Bruschetta maison</div>
-          <div class="plat-desc">Pain toasté au feu de bois, tomate concassée, ail, basilic, huile d'olive</div>
-          <div class="plat-prix">8€</div>
+          <div class="plat-name">Bruschetta Tomates</div>
+          <div class="plat-desc">Pain de campagne, huile d'olive, ail, tomates</div>
+          <div class="plat-prix">7,50 €</div>
         </div>
         <div class="plat-card">
-          <div class="plat-name">Calamars frits</div>
-          <div class="plat-desc">Calamars de Méditerranée, panure légère, citron vert, aïoli maison, persil</div>
-          <div class="plat-prix">14€</div>
-        </div>
-        <div class="plat-card">
-          <div class="plat-name">Antipasti du jour</div>
-          <div class="plat-desc">Sélection de charcuteries italiennes, légumes grillés, fromages affinés. Variable selon arrivages</div>
-          <div class="plat-prix">18€</div>
-        </div>
-        <div class="plat-card">
-          <div class="plat-name">Soupe de tomate</div>
-          <div class="plat-desc">Tomates San Marzano, basilic, croutons à l'ail, huile d'olive, parmesan râpé</div>
-          <div class="plat-prix">9€</div>
+          <div class="plat-name">Bruschetta Aubergines</div>
+          <div class="plat-desc">Pain de campagne, huile d'olive, ail, aubergines</div>
+          <div class="plat-prix">7,50 €</div>
         </div>
       </div>
 
-      <!-- DESSERTS -->
+      <div class="carte-panel" id="panel-salades">
+        <div class="plat-card">
+          <div class="plat-name">La Chèvre-Miel-Noix</div>
+          <div class="plat-desc">Salade, chèvre chaud, miel, noix. Servie avec du pain bio aux herbes</div>
+          <div class="plat-prix">13,90 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">La Veggie</div>
+          <div class="plat-desc">Salade, artichauts, aubergines, oignons, poivrons, olives, maïs</div>
+          <div class="plat-prix">12,00 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">La Cesar</div>
+          <div class="plat-desc">Salade, poulet, maïs, parmesan</div>
+          <div class="plat-prix">13,50 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">L'Italienne</div>
+          <div class="plat-desc">Salade, burrata, jambon Serrano, pesto, olives</div>
+          <div class="plat-prix">15,00 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">L'Océane</div>
+          <div class="plat-desc">Salade, saumon fumé, avocat, aneth</div>
+          <div class="plat-prix">15,00 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">Petite Salade Verte</div>
+          <div class="plat-desc">Salade, assaisonnement</div>
+          <div class="plat-prix">3,50 €</div>
+        </div>
+      </div>
+
+      <div class="carte-panel" id="panel-boissons">
+        <div class="plat-card">
+          <div class="plat-name">Boissons Fraîches (33 cl)</div>
+          <div class="plat-desc">Coca-Cola, Coca zéro, Sprite, Orangina, Oasis tropical, Ice Tea</div>
+          <div class="plat-prix">2,90 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">Eaux Minérales (50 cl)</div>
+          <div class="plat-desc">San Pellegrino, Vittel</div>
+          <div class="plat-prix">2,90 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">Bières (33 cl)</div>
+          <div class="plat-desc">1664 Bouteille, Heineken Pression, Desperados Pression</div>
+          <div class="plat-prix">4,50 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">Vins de Table (Bouteille 75 cl)</div>
+          <div class="plat-desc">Rosé St-Chinian (14,90€) · Rouge Côte du Rhône (14,90€) · Blanc Viña Bianca (27,80€)</div>
+          <div class="plat-prix">Dès 14,90 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">Café sur place</div>
+          <div class="plat-desc">Café serré ou allongé (À emporter : 1,00 €)</div>
+          <div class="plat-prix">2,00 €</div>
+        </div>
+        <div class="plat-card">
+          <div class="plat-name">Boissons Chaudes</div>
+          <div class="plat-desc">Thé à infuser (2,00€) · Chocolat chaud (4,50€) · Chocolat viennois (5,00€)</div>
+          <div class="plat-prix">Dès 2,00 €</div>
+        </div>
+      </div>
+
       <div class="carte-panel" id="panel-desserts">
         <div class="plat-card">
-          <div class="plat-name">Tiramisu maison</div>
-          <div class="plat-desc">Recette familiale de la nonna, biscuits savoiardi, café fort, mascarpone, cacao amer</div>
-          <div class="plat-prix">8€</div>
+          <div class="plat-name">Tartelettes</div>
+          <div class="plat-desc">Chocolat, Citron ou Pomme au choix</div>
+          <div class="plat-prix">4,50 €</div>
         </div>
         <div class="plat-card">
-          <div class="plat-name">Panna cotta</div>
-          <div class="plat-desc">Crème vanille de Madagascar, coulis de fruits rouges du jour, menthe fraîche</div>
-          <div class="plat-prix">7€</div>
+          <div class="plat-name">Demie Calzone Nutella</div>
+          <div class="plat-desc">Chausson gourmand fourré au Nutella cuit au four</div>
+          <div class="plat-prix">6,50 €</div>
         </div>
         <div class="plat-card">
-          <div class="plat-name">Cannoli siciliens</div>
-          <div class="plat-desc">Pâte croustillante, ricotta sucrée, pistaches de Bronte, zeste d'orange confite</div>
-          <div class="plat-prix">9€</div>
+          <div class="plat-name">Coupe de Glace</div>
+          <div class="plat-desc">2 Boules au choix avec chantilly</div>
+          <div class="plat-prix">5,50 €</div>
         </div>
         <div class="plat-card">
-          <div class="plat-name">Fondant chocolat</div>
-          <div class="plat-desc">Cœur coulant au chocolat 70%, crème anglaise à la vanille, fleur de sel</div>
-          <div class="plat-prix">8€</div>
-        </div>
-        <div class="plat-card">
-          <div class="plat-name">Glaces artisanales</div>
-          <div class="plat-desc">Scoops de gelato au lait ou sorbets — pistache, stracciatella, citron, fruits rouges. Demander les parfums du jour</div>
-          <div class="plat-prix">6€ · 2 boules</div>
-        </div>
-        <div class="plat-card">
-          <div class="plat-name">Cheese-cake ricotta</div>
-          <div class="plat-desc">Base de biscuits amaretti, ricotta crémeuse, miel de châtaignier, zeste de citron sicilien</div>
-          <div class="plat-prix">8€</div>
+          <div class="plat-name">Tiramisu Maison</div>
+          <div class="plat-desc">Le grand classique italien fait maison à la crème mascarpone</div>
+          <div class="plat-prix">6,50 €</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── COMMANDER ── -->
   <section class="order-section" id="commander">
     <div class="order-inner">
       <h2 class="order-title">Commander en <em>livraison</em></h2>
-      <p class="order-sub">Livraison à domicile disponible via nos partenaires · Ou appelez directement pour un click &amp; collect</p>
+      <p class="order-sub">Livraison ultra-rapide à domicile via notre partenaire exclusif ou par téléphone pour le Click & Collect</p>
       <div class="order-buttons">
-        <a href="https://www.ubereats.com" target="_blank" rel="noopener" class="btn-order btn-uber">
+        <a href="https://www.ubereats.com/fr/store/la-caza-pizza-vincennes/PoGfRAXBX0q9Pasj6O-bfw?diningMode=DELIVERY&ps=1&sc=SEARCH_SUGGESTION" target="_blank" rel="noopener" class="btn-order btn-uber">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.5 17H15v-4.5a2.5 2.5 0 00-5 0V17H7.5V7H10v1.32A4.48 4.48 0 0117.5 12V17z"/></svg>
           Commander sur Uber Eats
-        </a>
-        <a href="https://deliveroo.fr" target="_blank" rel="noopener" class="btn-order btn-deliveroo">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-          Commander sur Deliveroo
         </a>
         <a href="tel:0619170735" class="btn-tel-order">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.86 19.79 19.79 0 01.12 1.22 2 2 0 012.1 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
@@ -828,7 +847,6 @@ footer {
     </div>
   </section>
 
-  <!-- ── RÉSERVATION ── -->
   <section class="resa-section" id="reservation">
     <div class="resa-inner">
       <div class="resa-left">
@@ -839,24 +857,28 @@ footer {
             <div class="resa-info-icon">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
             </div>
-            <div>Groupes et anniversaires bienvenus — signalez-le dans le message</div>
+            <div>Repas de groupe & tablées familiales — Précisez-le en commentaire</div>
           </div>
           <div class="resa-info-item">
             <div class="resa-info-icon">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
             </div>
-            <div>Confirmation par SMS dans les 2 heures · Annulation libre jusqu'à 24h avant</div>
+            <div>Traitement instantané des demandes via notre passerelle Web3Forms sécurisée</div>
           </div>
           <div class="resa-info-item">
             <div class="resa-info-icon">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.86 19.79 19.79 0 01.12 1.22 2 2 0 012.1 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
             </div>
-            <div>Ou appelez directement au <strong style="color:#fff">06 19 17 07 35</strong></div>
+            <div>Une urgence ? Joignez l'équipe par téléphone au <strong style="color:#fff">06 19 17 07 35</strong></div>
           </div>
         </div>
       </div>
 
-      <form class="resa-form" id="resaForm" onsubmit="handleResa(event)">
+      <form class="resa-form" id="resaForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="handleResa(event)">
+        <input type="hidden" name="access_key" value="ea3ffc68-de33-4f11-9a79-24b533d7d74f">
+        <input type="hidden" name="subject" value="Nouvelle réservation de table — La Caz'à Pizza Vincennes">
+        <input type="checkbox" name="botcheck" style="display:none;">
+
         <h3 class="form-title">Réserver une table</h3>
         <p class="form-sub">Remplissez le formulaire, nous confirmons sous 2h.</p>
         <div class="form-fields">
@@ -905,7 +927,6 @@ footer {
     </div>
   </section>
 
-  <!-- ── AVIS ── -->
   <section class="avis-section" id="avis">
     <div class="avis-inner">
       <div class="avis-header">
@@ -945,7 +966,6 @@ footer {
     </div>
   </section>
 
-  <!-- ── INFOS ── -->
   <section class="infos-section" id="infos">
     <div style="max-width:1100px;margin:0 auto;margin-bottom:3.5rem;">
       <div class="section-eyebrow">Informations pratiques</div>
@@ -982,7 +1002,7 @@ footer {
         </div>
 
         <div class="info-block">
-          <span class="info-label">Accès &amp; stationnement</span>
+          <span class="info-label">Accès & stationnement</span>
           <span class="info-value">Métro ligne 1 · Arrêt Château de Vincennes (5 min à pied)</span>
           <span class="info-sub">Stationnement disponible avenue de Vorges et rues adjacentes</span>
         </div>
@@ -1052,17 +1072,35 @@ document.querySelectorAll('.carte-tab').forEach(function(tab) {
   });
 });
 
-/* ── Formulaire réservation ── */
+/* ── Gestion d'envoi Web3Forms en arrière-plan sans recharger la page ── */
 function handleResa(event) {
   event.preventDefault();
   var form = document.getElementById('resaForm');
   var btn = form.querySelector('.btn-submit-resa');
   btn.style.opacity = '0.6'; btn.disabled = true; btn.textContent = 'Envoi en cours…';
-  setTimeout(function() {
-    document.getElementById('resaSuccess').style.display = 'block';
-    btn.style.display = 'none';
-    form.reset();
-  }, 900);
+
+  var formData = new FormData(form);
+
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if(data.success) {
+      document.getElementById('resaSuccess').style.display = 'block';
+      btn.style.display = 'none';
+      form.reset();
+    } else {
+      alert("Erreur lors de l'envoi. Veuillez réessayer ou nous joindre par téléphone.");
+      btn.style.opacity = '1'; btn.disabled = false; btn.textContent = 'Confirmer la réservation';
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert("Une erreur de réseau s'est produite.");
+    btn.style.opacity = '1'; btn.disabled = false; btn.textContent = 'Confirmer la réservation';
+  });
 }
 
 /* ── Smooth scroll ── */
