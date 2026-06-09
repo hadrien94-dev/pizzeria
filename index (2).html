@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instant de Sérénité — Institut de Beauté Premium · Nogent-sur-Marne</title>
+<meta name="description" content="Institut de beauté premium à Nogent-sur-Marne. Soins du visage sur-mesure, épilations méticuleuses et rituels bien-être. Prenez rendez-vous : 01 48 85 96 07">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #0b0a0a;
+  --bg-card: #111010;
+  --bg-elevated: #161414;
+  --gold: #c9a96e;
+  --gold-light: #e2c48a;
+  --gold-dim: #8b7355;
+  --cream: #f5f0e8;
+  --cream-dim: #bfb8ac;
+  --text-body: #9a9490;
+  --border: rgba(201,169,110,0.15);
+  --border-subtle: rgba(255,255,255,0.06);
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Montserrat', sans-serif;
+  --radius: 4px;
+  --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--cream-dim);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--bg-deep);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 5vw;
+  background: rgba(11,10,10,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: var(--transition);
+}
+
+nav.scrolled {
+  padding: 0.9rem 5vw;
+  background: rgba(11,10,10,0.98);
+}
+
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--cream);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.nav-logo span {
+  color: var(--gold);
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  background: transparent;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold-light);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg-deep);
+}
+
+.hero {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 7rem 5vw 4rem;
+  gap: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(201,169,110,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+  animation: fadeSlideUp 1s ease forwards;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  border: 1px solid var(--border);
+  background: rgba(201,169,110,0.05);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--gold-dim);
+  width: fit-content;
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: var(--cream);
+  letter-spacing: -0.01em;
+}
+
+.hero-title .accent {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text-body);
+  max-width: 420px;
+  font-weight: 400;
+}
+
+.hero-divider {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--bg-deep);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(201,169,110,0.3);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 2rem;
+  background: transparent;
+  color: var(--cream-dim);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--border-subtle);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold-dim);
+  color: var(--gold-light);
+}
+
+.hero-right {
+  position: relative;
+  height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 1.2s ease 0.3s both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hero-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-image-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11,10,10,0.3) 0%, transparent 50%, rgba(11,10,10,0.2) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-image-wrap::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  background: linear-gradient(90deg, var(--bg-deep), transparent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: floatZoom 12s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes floatZoom {
+  0%, 100% { transform: scale(1.05) translateY(0px); }
+  33% { transform: scale(1.08) translateY(-8px); }
+  66% { transform: scale(1.04) translateY(6px); }
+}
+
+.hero-frame {
+  position: absolute;
+  inset: 16px;
+  border: 1px solid rgba(201,169,110,0.2);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.trust-bar {
+  padding: 4rem 5vw;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.trust-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.trust-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.trust-stars {
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+}
+
+.trust-score {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--cream);
+}
+
+.trust-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--text-body);
+  text-transform: uppercase;
+  padding-left: 1.2rem;
+  border-left: 1px solid var(--border);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.review-card {
+  padding: 2rem 2.2rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  transition: var(--transition);
+}
+
+.review-card:hover {
+  border-color: var(--border);
+}
+
+.review-card::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem;
+  left: 1.8rem;
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  color: var(--gold);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.review-text {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--cream-dim);
+  font-style: italic;
+  margin-bottom: 1.2rem;
+}
+
+.review-author {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.review-stars {
+  color: var(--gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.services {
+  padding: 7rem 5vw;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.25;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5px;
+  background: var(--border-subtle);
+}
+
+.service-card {
+  background: var(--bg-card);
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0);
+  transition: var(--transition);
+}
+
+.service-card:hover::after {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  background: var(--bg-elevated);
+}
+
+.service-icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+.service-number {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--gold-dim);
+  letter-spacing: 0.1em;
+}
+
+.service-name {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.25;
+}
+
+.service-desc {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--text-body);
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-top: auto;
+  transition: var(--transition);
+}
+
+.service-link:hover {
+  color: var(--gold-light);
+  gap: 0.8rem;
+}
+
+.contact {
+  padding: 7rem 5vw;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.contact-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.contact-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+
+.contact-title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.3;
+}
+
+.contact-detail-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.detail-value {
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+  line-height: 1.6;
+}
+
+.detail-sub {
+  font-size: 0.78rem;
+  color: var(--text-body);
+  font-style: italic;
+}
+
+.contact-phone-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  padding: 1rem 1.8rem;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  color: var(--bg-deep);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.contact-phone-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(201,169,110,0.3);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-header {
+  margin-bottom: 0.5rem;
+}
+
+.form-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 0.4rem;
+}
+
+.form-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-body);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.field-input,
+.field-select {
+  padding: 0.85rem 1.1rem;
+  background: var(--bg-deep);
+  border: 1px solid var(--border-subtle);
+  color: var(--cream-dim);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  outline: none;
+  transition: var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+.field-input:focus,
+.field-select:focus {
+  border-color: var(--gold-dim);
+  background: var(--bg-elevated);
+}
+
+.field-input::placeholder {
+  color: var(--text-body);
+  opacity: 0.6;
+}
+
+.field-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238b7355' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.field-select option {
+  background: var(--bg-deep);
+  color: var(--cream-dim);
+}
+
+.form-submit {
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold-light);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.form-submit:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg-deep);
+}
+
+.form-note {
+  font-size: 0.72rem;
+  color: var(--text-body);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.success-msg {
+  display: none;
+  padding: 1.2rem 1.5rem;
+  background: rgba(201,169,110,0.08);
+  border: 1px solid var(--gold-dim);
+  color: var(--gold-light);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+footer {
+  padding: 2.5rem 5vw;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-left {
+  font-size: 0.72rem;
+  color: var(--text-body);
+  opacity: 0.7;
+  letter-spacing: 0.04em;
+}
+
+.footer-center {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  color: var(--gold-dim);
+}
+
+.footer-right {
+  font-size: 0.72rem;
+  color: var(--text-body);
+  opacity: 0.7;
+}
+
+.footer-right a {
+  color: var(--gold-dim);
+  transition: var(--transition);
+}
+
+.footer-right a:hover {
+  color: var(--gold-light);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 6rem;
+    min-height: auto;
+    gap: 2.5rem;
+  }
+
+  .hero-right {
+    height: 320px;
+    order: -1;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  nav {
+    padding: 1rem 4vw;
+  }
+
+  .nav-logo {
+    font-size: 1rem;
+  }
+
+  .nav-cta {
+    font-size: 0.65rem;
+    padding: 0.5rem 0.9rem;
+  }
+
+  .hero {
+    padding: 5.5rem 5vw 3rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .trust-bar {
+    padding: 3rem 5vw;
+  }
+
+  .trust-rating {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="#" class="nav-logo">Instant <span>de Sérénité</span></a>
+  <a href="tel:0148859607" class="nav-cta">Prendre RDV&nbsp;: 01&nbsp;48&nbsp;85&nbsp;96&nbsp;07</a>
+</nav>
+
+<section class="hero" id="accueil">
+  <div class="hero-left">
+    <div class="hero-badge">✨ Votre Institut de Beauté Privé&nbsp;· Nogent-sur-Marne</div>
+    <h1 class="hero-title">Un instant absolu<br><span class="accent">de sérénité</span></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-subtitle">Soins du visage sur-mesure, épilations méticuleuses et rituels de bien-être dans un cadre chaleureux et confidentiel.</p>
+    <div class="hero-actions">
+      <a href="tel:0148859607" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.86 19.79 19.79 0 01.12 1.22 2 2 0 012.1 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        Appeler l'Institut
+      </a>
+      <a href="#prestations" class="btn-secondary">
+        Découvrir la carte des soins
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-image-wrap">
+      <img
+        class="hero-img"
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_3Erij4BdmViVM2FP8PqECfY4uJK/hf_20260608_183736_08030957-9128-4630-b1ee-20c18065a3f8.png"
+        alt="Soin du visage haut de gamme – Instant de Sérénité"
+        loading="eager"
+      >
+    </div>
+    <div class="hero-frame"></div>
+  </div>
+</section>
+
+<section class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-rating">
+      <div class="trust-stars">★ ★ ★ ★ ★</div>
+      <div class="trust-score">5.0<span style="font-size:1rem;color:var(--gold-dim)">/5</span></div>
+      <div class="trust-label">Basé sur 30 avis certifiés<br>Google Maps · Nogent-sur-Marne</div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">Soin du visage fait avec beaucoup de délicatesse… travail de qualité, l'institut est très chaleureux.</p>
+        <span class="review-author">— Alexandra M.</span>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★ ★ ★ ★ ★</div>
+        <p class="review-text">Salon très propre et agréable. Une esthéticienne très douce et méticuleuse. Je recommande à 100&nbsp;%.</p>
+        <span class="review-author">— Océane P.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="prestations">
+  <div class="section-header">
+    <div class="section-tag">Nos Prestations</div>
+    <h2 class="section-title">Des soins d'exception,<br><em>une attention absolue</em></h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div class="service-icon">✦</div>
+        <span class="service-number">01</span>
+      </div>
+      <div>
+        <h3 class="service-name">Soins du Visage</h3>
+      </div>
+      <p class="service-desc">Rituels sur-mesure et diagnostics de peau profonds exécutés avec délicatesse, pour révéler l'éclat naturel de votre peau.</p>
+      <a href="tel:0148859607" class="service-link">Réserver ce soin →</a>
+    </div>
+    <div class="service-card">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div class="service-icon">◈</div>
+        <span class="service-number">02</span>
+      </div>
+      <div>
+        <h3 class="service-name">Épilations Méticuleuses</h3>
+      </div>
+      <p class="service-desc">Une technique douce et précise pour un résultat impeccable et durable, dans un cadre confidentiel et bienveillant.</p>
+      <a href="tel:0148859607" class="service-link">Réserver ce soin →</a>
+    </div>
+    <div class="service-card">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div class="service-icon">❧</div>
+        <span class="service-number">03</span>
+      </div>
+      <div>
+        <h3 class="service-name">Massages & Détente</h3>
+      </div>
+      <p class="service-desc">Parenthèse de bien-être absolu pour libérer les tensions du corps et de l'esprit, et vous ressourcer en profondeur.</p>
+      <a href="tel:0148859607" class="service-link">Réserver ce soin →</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div>
+        <div class="contact-label">Nous trouver</div>
+        <h2 class="contact-title">L'Institut</h2>
+      </div>
+      <div class="contact-detail-group">
+        <div class="contact-detail">
+          <span class="detail-label">Adresse</span>
+          <span class="detail-value">3 Rue André Pontier<br>94130 Nogent-sur-Marne</span>
+          <span class="detail-sub">À deux pas du centre-ville · Stationnement facile</span>
+        </div>
+        <div class="contact-detail">
+          <span class="detail-label">Horaires</span>
+          <span class="detail-value">Ouvert du mardi au samedi<br>dès 10:00</span>
+        </div>
+        <div class="contact-detail">
+          <span class="detail-label">Téléphone</span>
+          <span class="detail-value">01 48 85 96 07</span>
+        </div>
+      </div>
+      <a href="tel:0148859607" class="contact-phone-link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.86 19.79 19.79 0 01.12 1.22 2 2 0 012.1 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        Appeler maintenant · 01 48 85 96 07
+      </a>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-header">
+        <h3 class="form-title">Demande de rappel sous 2h</h3>
+        <p class="form-subtitle">Laissez vos coordonnées, nous vous recontactons rapidement.</p>
+      </div>
+      <div class="form-row">
+        <div class="field-wrap">
+          <label class="field-label" for="nom">Prénom & Nom</label>
+          <input class="field-input" type="text" id="nom" name="nom" placeholder="Marie Dupont" required>
+        </div>
+        <div class="field-wrap">
+          <label class="field-label" for="tel">Téléphone</label>
+          <input class="field-input" type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" required>
+        </div>
+      </div>
+      <div class="field-wrap">
+        <label class="field-label" for="prestation">Prestation souhaitée</label>
+        <select class="field-select" id="prestation" name="prestation" required>
+          <option value="" disabled selected>Choisir une prestation…</option>
+          <option value="visage">Soin du visage</option>
+          <option value="epilation">Épilation</option>
+          <option value="massage">Massage & Détente</option>
+          <option value="autre">Autre / À définir</option>
+        </select>
+      </div>
+      <button type="button" class="form-submit" onclick="handleFormSubmit()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22 11 13 2 9l20-7z"/></svg>
+        Envoyer ma demande
+      </button>
+      <div class="success-msg" id="successMsg">
+        ✓ &nbsp;Votre demande a bien été envoyée. Nous vous rappelons sous 2h.
+      </div>
+      <p class="form-note">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        Vos données restent strictement confidentielles.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-left">© 2026 Instant de Sérénité · 3 Rue André Pontier, 94130 Nogent-sur-Marne</span>
+  <span class="footer-center">Instant de Sérénité</span>
+  <span class="footer-right">
+    <a href="tel:0148859607">01 48 85 96 07</a>
+    &ensp;·&ensp;Mentions légales
+  </span>
+</footer>
+
+<script>
+(function() {
+  var nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }, { passive: true });
+})();
+
+function handleFormSubmit() {
+  var nom = document.getElementById('nom').value.trim();
+  var tel = document.getElementById('tel').value.trim();
+  var prestation = document.getElementById('prestation').value;
+  if (!nom || !tel || !prestation) {
+    alert('Merci de remplir tous les champs.');
+    return;
+  }
+  var btn = document.querySelector('.form-submit');
+  btn.style.opacity = '0.5';
+  btn.disabled = true;
+  setTimeout(function() {
+    document.getElementById('successMsg').style.display = 'block';
+    btn.style.display = 'none';
+  }, 600);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+  anchor.addEventListener('click', function(e) {
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
